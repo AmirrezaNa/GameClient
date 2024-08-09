@@ -1,5 +1,6 @@
 package offlineGame.controller.game.collisions.bossFight;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.Constants;
 import offlineGame.controller.data.controller.SoundEffects;
 import offlineGame.controller.game.GameController;
@@ -9,7 +10,6 @@ import model.entity.BallModel;
 import model.entity.BulletModel;
 import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.RightHandModel;
-import model.entity.enemy.normalAndMiniBoss.BlackOrbModel;
 import offlineGame.view.startPage.EnterNamePage;
 
 import static offlineGame.controller.game.GameController.*;
@@ -231,7 +231,7 @@ public class ObjectCollisionBossFight {
         double xMin2 = rightHand.x;
         double xMax2 = rightHand.x + RightHandModel.rightHandSize;
         double yMin2 = rightHand.y - RightHandModel.rightHandSize;
-        double yMax2 = rightHand.y + BlackOrbModel.blackOrbSize;
+        double yMax2 = rightHand.y + AllEnemies.BlackOrbModel.blackOrbSize;
 
         if (((xMin1 >= xMin2 && xMin1 <= xMax2) && (yMin1 >= yMin2 && yMin1 <= yMax2))
                 || ((xMin1 <= xMin2 && xMax1 >= xMin2) && (yMin1 >= yMin2 && yMin1 <= yMax2))

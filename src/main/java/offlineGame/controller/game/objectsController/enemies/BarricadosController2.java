@@ -1,7 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
-import model.entity.enemy.normalAndMiniBoss.BarricadosModel2;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,11 +16,11 @@ public class BarricadosController2 {
         if (!barricadosEnemies2.isEmpty()) {
             for (int i = 0; i < barricadosEnemies2.size(); i++) {
                 if (barricadosEnemies2.get(i).enemyTimer > 0) {
-                    barricadosEnemies2.get(i).dx = -((barricadosEnemies2.get(i).x - ball.x) / Math.sqrt(Math.pow((barricadosEnemies2.get(i).x - ball.x), 2) + Math.pow((barricadosEnemies2.get(i).y - ball.y), 2))) * BarricadosModel2.enemySpeed;
+                    barricadosEnemies2.get(i).dx = -((barricadosEnemies2.get(i).x - ball.x) / Math.sqrt(Math.pow((barricadosEnemies2.get(i).x - ball.x), 2) + Math.pow((barricadosEnemies2.get(i).y - ball.y), 2))) * AllEnemies.BarricadosModel2.enemySpeed;
                     if (ball.y < barricadosEnemies2.get(i).y) {
-                        barricadosEnemies2.get(i).dy = -Math.sqrt(Math.pow(BarricadosModel2.enemySpeed, 2) - Math.pow(barricadosEnemies2.get(i).dx, 2));
+                        barricadosEnemies2.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.BarricadosModel2.enemySpeed, 2) - Math.pow(barricadosEnemies2.get(i).dx, 2));
                     } else {
-                        barricadosEnemies2.get(i).dy = Math.sqrt(Math.pow(BarricadosModel2.enemySpeed, 2) - Math.pow(barricadosEnemies2.get(i).dx, 2));
+                        barricadosEnemies2.get(i).dy = Math.sqrt(Math.pow(AllEnemies.BarricadosModel2.enemySpeed, 2) - Math.pow(barricadosEnemies2.get(i).dx, 2));
                     }
                     if (ball.ballDismay) {
                         barricadosEnemies2.get(i).dx = -barricadosEnemies2.get(i).dx;
@@ -59,7 +59,7 @@ public class BarricadosController2 {
 
     }
 
-    public static void setTimerForBarricados2(BarricadosModel2 barricados2) {
+    public static void setTimerForBarricados2(AllEnemies.BarricadosModel2 barricados2) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

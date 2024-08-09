@@ -1,6 +1,7 @@
 package offlineGame.view.gameLoop.phase1;
 
 import model.entity.*;
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
 import offlineGame.controller.game.WaveController;
 import offlineGame.controller.game.collisions.phase1.FrameCollision;
@@ -13,8 +14,6 @@ import offlineGame.controller.game.objectsController.BallDirectionController;
 import offlineGame.controller.game.objectsController.BulletController;
 import offlineGame.controller.game.objectsController.enemies.Enemy1Controller;
 import offlineGame.controller.game.objectsController.enemies.Enemy2Controller;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel1;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,8 +27,8 @@ public class GamePanel extends JPanel implements Runnable {
     public static BallModel ball;
     public static BallDirection ballDirection;
     public static BallAngle ballAngle;
-    public static EnemyModel1 enemy1;
-    public static EnemyModel2 enemy2;
+    public static AllEnemies.EnemyModel1 enemy1;
+    public static AllEnemies.EnemyModel2 enemy2;
     KeyInputListener keyInputListener;
     MouseInputListener mouseInputListener;
 

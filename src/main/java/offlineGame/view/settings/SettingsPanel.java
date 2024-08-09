@@ -1,10 +1,9 @@
 package offlineGame.view.settings;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.Constants;
 import offlineGame.controller.data.controller.SoundEffects;
 import model.entity.BallModel;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel1;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel2;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -83,16 +82,16 @@ public class SettingsPanel extends JPanel implements ChangeListener {
     public void changeGameData() {
         if (level == 1) {
             BallModel.ballRadius = 10;
-            EnemyModel1.enemy1Size = 40;
-            EnemyModel2.enemy2Size = 40;
-            EnemyModel1.enemySpeed = 0.2;
-            EnemyModel2.enemySpeed = 0.2;
+            AllEnemies.EnemyModel1.enemy1Size = 40;
+            AllEnemies.EnemyModel2.enemy2Size = 40;
+            AllEnemies.EnemyModel1.enemySpeed = 0.2;
+            AllEnemies.EnemyModel2.enemySpeed = 0.2;
         }
         if (level == 3) {
-            EnemyModel1.enemy1Size = 20;
-            EnemyModel2.enemy2Size = 20;
-            EnemyModel1.enemySpeed = 0.6;
-            EnemyModel2.enemySpeed = 0.6;
+            AllEnemies.EnemyModel1.enemy1Size = 20;
+            AllEnemies.EnemyModel2.enemy2Size = 20;
+            AllEnemies.EnemyModel1.enemySpeed = 0.6;
+            AllEnemies.EnemyModel2.enemySpeed = 0.6;
         }
     }
 }

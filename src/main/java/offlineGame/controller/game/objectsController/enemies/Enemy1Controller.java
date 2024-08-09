@@ -1,7 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.Rotation;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel1;
 
 import static offlineGame.controller.game.GameController.ball;
 import static offlineGame.controller.game.GameController.enemies1;
@@ -14,11 +14,11 @@ public class Enemy1Controller {
         if (!enemies1.isEmpty()) {
             for (int i = 0; i < enemies1.size(); i++) {
                 if (enemies1.get(i).enemyHealth > 0) {
-                    enemies1.get(i).dx = -((enemies1.get(i).x - ball.x) / Math.sqrt(Math.pow((enemies1.get(i).x - ball.x), 2) + Math.pow((enemies1.get(i).y - ball.y), 2))) * EnemyModel1.enemySpeed;
+                    enemies1.get(i).dx = -((enemies1.get(i).x - ball.x) / Math.sqrt(Math.pow((enemies1.get(i).x - ball.x), 2) + Math.pow((enemies1.get(i).y - ball.y), 2))) * AllEnemies.EnemyModel1.enemySpeed;
                     if (ball.y < enemies1.get(i).y) {
-                        enemies1.get(i).dy = -Math.sqrt(Math.pow(EnemyModel1.enemySpeed, 2) - Math.pow(enemies1.get(i).dx, 2));
+                        enemies1.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.EnemyModel1.enemySpeed, 2) - Math.pow(enemies1.get(i).dx, 2));
                     } else {
-                        enemies1.get(i).dy = Math.sqrt(Math.pow(EnemyModel1.enemySpeed, 2) - Math.pow(enemies1.get(i).dx, 2));
+                        enemies1.get(i).dy = Math.sqrt(Math.pow(AllEnemies.EnemyModel1.enemySpeed, 2) - Math.pow(enemies1.get(i).dx, 2));
                     }
                     if (ball.ballDismay) {
                         enemies1.get(i).dx = -enemies1.get(i).dx;

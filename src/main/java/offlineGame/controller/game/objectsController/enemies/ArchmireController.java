@@ -1,8 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
-import model.entity.enemy.normalAndMiniBoss.ArchmireModel;
-import model.entity.enemy.normalAndMiniBoss.ArchmirePoints;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,11 +14,11 @@ public class ArchmireController {
         if (!archmireEnemies.isEmpty()) {
             for (int i = 0; i < archmireEnemies.size(); i++) {
                 if (archmireEnemies.get(i).enemyHealth > 0) {
-                    archmireEnemies.get(i).dx = -((archmireEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((archmireEnemies.get(i).x - ball.x), 2) + Math.pow((archmireEnemies.get(i).y - ball.y), 2))) * ArchmireModel.enemySpeed;
+                    archmireEnemies.get(i).dx = -((archmireEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((archmireEnemies.get(i).x - ball.x), 2) + Math.pow((archmireEnemies.get(i).y - ball.y), 2))) * AllEnemies.ArchmireModel.enemySpeed;
                     if (ball.y < archmireEnemies.get(i).y) {
-                        archmireEnemies.get(i).dy = -Math.sqrt(Math.pow(ArchmireModel.enemySpeed, 2) - Math.pow(archmireEnemies.get(i).dx, 2));
+                        archmireEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.ArchmireModel.enemySpeed, 2) - Math.pow(archmireEnemies.get(i).dx, 2));
                     } else {
-                        archmireEnemies.get(i).dy = Math.sqrt(Math.pow(ArchmireModel.enemySpeed, 2) - Math.pow(archmireEnemies.get(i).dx, 2));
+                        archmireEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.ArchmireModel.enemySpeed, 2) - Math.pow(archmireEnemies.get(i).dx, 2));
                     }
                 }
             }
@@ -54,13 +53,13 @@ public class ArchmireController {
 
     }
 
-    public static void setTrace(ArchmireModel archmire) {
+    public static void setTrace(AllEnemies.ArchmireModel archmire) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (archmire.enemyHealth > 0  && !GameController.pause) {
-                    ArchmirePoints archmirePoint = new ArchmirePoints(archmire.x + ((double) ArchmireModel.archmireSize / 2), archmire.y + ((double) ArchmireModel.archmireSize / 2));
+                    AllEnemies.ArchmirePoints archmirePoint = new AllEnemies.ArchmirePoints(archmire.x + ((double) AllEnemies.ArchmireModel.archmireSize / 2), archmire.y + ((double) AllEnemies.ArchmireModel.archmireSize / 2));
                     archmirePoints.add(0, archmirePoint);
                     setTimerForPoint(archmirePoint);
                 }
@@ -74,7 +73,7 @@ public class ArchmireController {
     }
 
 
-    public static void setTimerForPoint(ArchmirePoints archmirePoint) {
+    public static void setTimerForPoint(AllEnemies.ArchmirePoints archmirePoint) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

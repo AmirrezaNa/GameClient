@@ -1,7 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
-import model.entity.enemy.normalAndMiniBoss.NecropickModel;
 import offlineGame.view.gameLoop.phase2.normalAndMiniBossEnemies.GamePanel2;
 
 import java.awt.*;
@@ -69,10 +69,10 @@ public class NecropickController {
     }
 
 
-    public static void shotNecropickBullets(NecropickModel necropick) {
+    public static void shotNecropickBullets(AllEnemies.NecropickModel necropick) {
         for (int i = 0; i < 8; i++) {
             Point point = new Point();
-            point.setLocation(necropick.x + ((double) NecropickModel.necropickSize / 2), necropick.y + ((double) NecropickModel.necropickSize / 2));
+            point.setLocation(necropick.x + ((double) AllEnemies.NecropickModel.necropickSize / 2), necropick.y + ((double) AllEnemies.NecropickModel.necropickSize / 2));
             Point goal = new Point();
             goal.setLocation(ball.x, ball.y + 30 + ((Math.pow(-1,i) * i * 100)));
             GameController.newNecropickBullet(point, goal);

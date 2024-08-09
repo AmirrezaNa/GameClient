@@ -1,7 +1,7 @@
 package offlineGame.view.gameLoop.phase2.normalAndMiniBossEnemies;
 
 import model.entity.*;
-import model.entity.enemy.normalAndMiniBoss.*;
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.FrameOfObject;
 import offlineGame.controller.game.GameController;
 import offlineGame.controller.game.WaveController;
@@ -24,13 +24,13 @@ public class GamePanel2 extends JPanel implements Runnable {
     public static BallModel ball;
     public static BallDirection ballDirection;
     public static BallAngle ballAngle;
-    public static ArchmireModel archmire;
-    public static BarricadosModel1 barricados1;
-    public static BarricadosModel2 barricados2;
-    public static BlackOrbModel blackOrb;
-    public static OmenoctModel omenoct;
-    public static WyrmModel wyrm;
-    public static NecropickModel necropick;
+    public static AllEnemies.ArchmireModel archmire;
+    public static AllEnemies.BarricadosModel1 barricados1;
+    public static AllEnemies.BarricadosModel2 barricados2;
+    public static AllEnemies.BlackOrbModel blackOrb;
+    public static AllEnemies.OmenoctModel omenoct;
+    public static AllEnemies.WyrmModel wyrm;
+    public static AllEnemies.NecropickModel necropick;
     KeyInputListener keyInputListener;
     MouseInputListener mouseInputListener;
     public static boolean pause;
@@ -279,11 +279,11 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.omenoctEnemies.size(); i++) {
                 if (GameController.omenoctEnemies.get(i).enemyHealth > 0) {
                     super.paintComponent(g);
-                    g.drawImage(OmenoctModel.image,
-                            (int) GameController.omenoctEnemies.get(i).x - OmenoctModel.distanceToCenter,
+                    g.drawImage(AllEnemies.OmenoctModel.image,
+                            (int) GameController.omenoctEnemies.get(i).x - AllEnemies.OmenoctModel.distanceToCenter,
                             (int) GameController.omenoctEnemies.get(i).y,
-                            2 * OmenoctModel.distanceToCenter,
-                            2 * OmenoctModel.distanceToCenter,
+                            2 * AllEnemies.OmenoctModel.distanceToCenter,
+                            2 * AllEnemies.OmenoctModel.distanceToCenter,
                             null);
                 }
             }
@@ -298,19 +298,19 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.necropickEnemies.size(); i++) {
                 if (GameController.necropickEnemies.get(i).enemyHealth > 0 &&
                         !GameController.necropickEnemies.get(i).hide) {
-                    g.drawImage(NecropickModel.image,
+                    g.drawImage(AllEnemies.NecropickModel.image,
                             (int) GameController.necropickEnemies.get(i).x,
                             (int) GameController.necropickEnemies.get(i).y,
-                            NecropickModel.necropickSize,
-                            NecropickModel.necropickSize,
+                            AllEnemies.NecropickModel.necropickSize,
+                            AllEnemies.NecropickModel.necropickSize,
                             null);
                 } else if (GameController.necropickEnemies.get(i).enemyHealth > 0 &&
                         GameController.necropickEnemies.get(i).hide) {
                     g.setColor(new Color(0x464642));
                     g.fillOval((int) GameController.necropickEnemies.get(i).x,
                             (int) GameController.necropickEnemies.get(i).y,
-                            NecropickModel.necropickSize,
-                            NecropickModel.necropickSize);
+                            AllEnemies.NecropickModel.necropickSize,
+                            AllEnemies.NecropickModel.necropickSize);
                 }
 
             }
@@ -325,11 +325,11 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.archmireEnemies.size(); i++) {
                 if (GameController.archmireEnemies.get(i).enemyHealth > 0) {
                     super.paintComponent(g);
-                    g.drawImage(ArchmireModel.image,
+                    g.drawImage(AllEnemies.ArchmireModel.image,
                             (int) GameController.archmireEnemies.get(i).x,
                             (int) GameController.archmireEnemies.get(i).y,
-                            ArchmireModel.archmireSize,
-                            ArchmireModel.archmireSize,
+                            AllEnemies.ArchmireModel.archmireSize,
+                            AllEnemies.ArchmireModel.archmireSize,
                             null);
                 }
             }
@@ -345,10 +345,10 @@ public class GamePanel2 extends JPanel implements Runnable {
                 if (GameController.archmirePoints.get(i).archmirePointTimer > 0) {
                     super.paintComponent(g);
                     g.setColor(new Color(0x4B2828));
-                    g.fillOval((int) GameController.archmirePoints.get(i).x - (ArchmireModel.archmireSize / 2),
-                            (int) GameController.archmirePoints.get(i).y - (ArchmireModel.archmireSize / 2),
-                            ArchmireModel.archmireSize,
-                            ArchmireModel.archmireSize);
+                    g.fillOval((int) GameController.archmirePoints.get(i).x - (AllEnemies.ArchmireModel.archmireSize / 2),
+                            (int) GameController.archmirePoints.get(i).y - (AllEnemies.ArchmireModel.archmireSize / 2),
+                            AllEnemies.ArchmireModel.archmireSize,
+                            AllEnemies.ArchmireModel.archmireSize);
                 }
             }
         }
@@ -361,11 +361,11 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.wyrmEnemies.size(); i++) {
                 if (GameController.wyrmEnemies.get(i).enemyHealth > 0) {
                     super.paintComponent(g);
-                    g.drawImage(WyrmModel.image,
+                    g.drawImage(AllEnemies.WyrmModel.image,
                             (int) GameController.wyrmEnemies.get(i).x,
                             (int) GameController.wyrmEnemies.get(i).y,
-                            WyrmModel.wyrmSize,
-                            WyrmModel.wyrmSize,
+                            AllEnemies.WyrmModel.wyrmSize,
+                            AllEnemies.WyrmModel.wyrmSize,
                             null);
                 }
             }
@@ -379,11 +379,11 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.barricadosEnemies1.size(); i++) {
                 if (GameController.barricadosEnemies1.get(i).enemyTimer > 0) {
                     super.paintComponent(g);
-                    g.drawImage(BarricadosModel1.image,
+                    g.drawImage(AllEnemies.BarricadosModel1.image,
                             (int) GameController.barricadosEnemies1.get(i).x,
                             (int) GameController.barricadosEnemies1.get(i).y,
-                            BarricadosModel1.barricadosSize,
-                            BarricadosModel1.barricadosSize,
+                            AllEnemies.BarricadosModel1.barricadosSize,
+                            AllEnemies.BarricadosModel1.barricadosSize,
                             null);
                 }
             }
@@ -398,11 +398,11 @@ public class GamePanel2 extends JPanel implements Runnable {
             for (int i = 0; i < GameController.barricadosEnemies2.size(); i++) {
                 if (GameController.barricadosEnemies2.get(i).enemyTimer > 0) {
                     super.paintComponent(g);
-                    g.drawImage(BarricadosModel2.image,
+                    g.drawImage(AllEnemies.BarricadosModel2.image,
                             (int) GameController.barricadosEnemies2.get(i).x,
                             (int) GameController.barricadosEnemies2.get(i).y,
-                            BarricadosModel2.barricadosSize,
-                            BarricadosModel2.barricadosSize,
+                            AllEnemies.BarricadosModel2.barricadosSize,
+                            AllEnemies.BarricadosModel2.barricadosSize,
                             null);
                 }
             }
@@ -419,15 +419,15 @@ public class GamePanel2 extends JPanel implements Runnable {
                     int x = (int) GameController.blackOrbEnemies.get(i).x;
                     int y = (int) GameController.blackOrbEnemies.get(i).y;
                     int x1 = x;
-                    int x2 = (int) (x + (BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
-                    int x3 = (int) (x + (BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
-                    int x4 = (int) (x - (BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
-                    int x5 = (int) (x - (BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
-                    int y1 = (int) y - BlackOrbModel.blackOrbSize;
-                    int y2 = (int) (y - (BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
-                    int y3 = (int) (y + (BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
-                    int y4 = (int) (y + (BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
-                    int y5 = (int) (y - (BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
+                    int x2 = (int) (x + (AllEnemies.BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
+                    int x3 = (int) (x + (AllEnemies.BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
+                    int x4 = (int) (x - (AllEnemies.BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
+                    int x5 = (int) (x - (AllEnemies.BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
+                    int y1 = (int) y - AllEnemies.BlackOrbModel.blackOrbSize;
+                    int y2 = (int) (y - (AllEnemies.BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
+                    int y3 = (int) (y + (AllEnemies.BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
+                    int y4 = (int) (y + (AllEnemies.BlackOrbModel.blackOrbSize * Math.cos(Math.PI / 10)));
+                    int y5 = (int) (y - (AllEnemies.BlackOrbModel.blackOrbSize * Math.sin(Math.PI / 10)));
                     super.paintComponent(g);
                     g.setColor(new Color(0x575555));
                     Graphics2D g2d = (Graphics2D) g;

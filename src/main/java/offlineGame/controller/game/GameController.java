@@ -1,7 +1,7 @@
 package offlineGame.controller.game;
 
 import model.entity.*;
-import model.entity.enemy.normalAndMiniBoss.*;
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.Constants;
 import offlineGame.controller.data.controller.SoundEffects;
 import offlineGame.controller.game.objectsController.CollectibleController;
@@ -31,28 +31,28 @@ public class GameController {
     static BallDirection ballDirection;
     public static BallAngle ballAngle;
     static BulletModel bullet;
-    static EnemyModel1 enemy1;
-    static EnemyModel2 enemy2;
-    static ArchmireModel archmire;
-    static BarricadosModel1 barricados1;
-    static BarricadosModel2 barricados2;
-    static BlackOrbModel blackOrb;
-    static OmenoctModel omenoct;
-    static WyrmModel wyrm;
-    static NecropickModel necropick;
+    static AllEnemies.EnemyModel1 enemy1;
+    static AllEnemies.EnemyModel2 enemy2;
+    static AllEnemies.ArchmireModel archmire;
+    static AllEnemies.BarricadosModel1 barricados1;
+    static AllEnemies.BarricadosModel2 barricados2;
+    static AllEnemies.BlackOrbModel blackOrb;
+    static AllEnemies.OmenoctModel omenoct;
+    static AllEnemies.WyrmModel wyrm;
+    static AllEnemies.NecropickModel necropick;
     static Collectible collectible;
     public static ArrayList<BulletModel> bullets = new ArrayList<>();
     public static ArrayList<BulletModel> enemyBullets = new ArrayList<>();
-    public static ArrayList<EnemyModel1> enemies1 = new ArrayList<>();
-    public static ArrayList<EnemyModel2> enemies2 = new ArrayList<>();
-    public static ArrayList<ArchmireModel> archmireEnemies = new ArrayList<>();
-    public static ArrayList<ArchmirePoints> archmirePoints = new ArrayList<>();
-    public static ArrayList<BarricadosModel1> barricadosEnemies1 = new ArrayList<>();
-    public static ArrayList<BarricadosModel2> barricadosEnemies2 = new ArrayList<>();
-    public static ArrayList<BlackOrbModel> blackOrbEnemies = new ArrayList<>();
-    public static ArrayList<OmenoctModel> omenoctEnemies = new ArrayList<>();
-    public static ArrayList<WyrmModel> wyrmEnemies = new ArrayList<>();
-    public static ArrayList<NecropickModel> necropickEnemies = new ArrayList<>();
+    public static ArrayList<AllEnemies.EnemyModel1> enemies1 = new ArrayList<>();
+    public static ArrayList<AllEnemies.EnemyModel2> enemies2 = new ArrayList<>();
+    public static ArrayList<AllEnemies.ArchmireModel> archmireEnemies = new ArrayList<>();
+    public static ArrayList<AllEnemies.ArchmirePoints> archmirePoints = new ArrayList<>();
+    public static ArrayList<AllEnemies.BarricadosModel1> barricadosEnemies1 = new ArrayList<>();
+    public static ArrayList<AllEnemies.BarricadosModel2> barricadosEnemies2 = new ArrayList<>();
+    public static ArrayList<AllEnemies.BlackOrbModel> blackOrbEnemies = new ArrayList<>();
+    public static ArrayList<AllEnemies.OmenoctModel> omenoctEnemies = new ArrayList<>();
+    public static ArrayList<AllEnemies.WyrmModel> wyrmEnemies = new ArrayList<>();
+    public static ArrayList<AllEnemies.NecropickModel> necropickEnemies = new ArrayList<>();
     public static ArrayList<Collectible> collectibles = new ArrayList<>();
     public static int wave = 1;
     public static int Banish = 0;
@@ -149,10 +149,10 @@ public class GameController {
         if (!GamePanel.phase1over && !GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             if (enemies1.size() % 2 == 0) {
-                enemy1 = new EnemyModel1(50, (double) GameFrame.height / 2);
+                enemy1 = new AllEnemies.EnemyModel1(50, (double) GameFrame.height / 2);
                 enemies1.add(0, enemy1);
             } else {
-                enemy1 = new EnemyModel1((double) GameFrame.width / 2, 50);
+                enemy1 = new AllEnemies.EnemyModel1((double) GameFrame.width / 2, 50);
                 enemy1.dash = true;
                 enemies1.add(0, enemy1);
             }
@@ -163,10 +163,10 @@ public class GameController {
         if (!GamePanel.phase1over && !GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             if (enemies2.size() % 2 == 0) {
-                enemy2 = new EnemyModel2((double) GameFrame.width - 60, (double) GameFrame.height / 2);
+                enemy2 = new AllEnemies.EnemyModel2((double) GameFrame.width - 60, (double) GameFrame.height / 2);
                 enemies2.add(0, enemy2);
             } else {
-                enemy2 = new EnemyModel2(((double) GameFrame.width / 2), GameFrame.height - 60);
+                enemy2 = new AllEnemies.EnemyModel2(((double) GameFrame.width / 2), GameFrame.height - 60);
                 enemies2.add(0, enemy2);
             }
 
@@ -177,7 +177,7 @@ public class GameController {
     public static void newArchmire() {
         if (!GameController.pause && !ball.ballSlumber)
             for (int i = 1; i < 3; i++) {
-                ArchmireModel archmireModel = new ArchmireModel(createdFrames[i].x + (double) (createdFrames[i].width / 2),
+                AllEnemies.ArchmireModel archmireModel = new AllEnemies.ArchmireModel(createdFrames[i].x + (double) (createdFrames[i].width / 2),
                         createdFrames[i].y + (double) (createdFrames[i].height / 2));
                 ArchmireController.setTrace(archmireModel);
                 archmireEnemies.add(archmireModel);
@@ -190,8 +190,8 @@ public class GameController {
         if (!GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[2].x + (createdFrames[2].width/2);
-            int y = createdFrames[2].y + createdFrames[2].height - (BarricadosModel1.barricadosSize/2);
-            barricados1 = new BarricadosModel1(x, y);
+            int y = createdFrames[2].y + createdFrames[2].height - (AllEnemies.BarricadosModel1.barricadosSize/2);
+            barricados1 = new AllEnemies.BarricadosModel1(x, y);
             barricadosEnemies1.add(barricados1);
             BarricadosController1.setTimerForBarricados1(barricados1);
         }
@@ -201,8 +201,8 @@ public class GameController {
         if (!GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[1].x + (createdFrames[1].width/2);
-            int y = createdFrames[1].y + createdFrames[1].height - (BarricadosModel2.barricadosSize/2);
-            barricados2 = new BarricadosModel2(x, y);
+            int y = createdFrames[1].y + createdFrames[1].height - (AllEnemies.BarricadosModel2.barricadosSize/2);
+            barricados2 = new AllEnemies.BarricadosModel2(x, y);
             barricadosEnemies2.add(barricados2);
             BarricadosController2.setTimerForBarricados2(barricados2);
         }
@@ -214,7 +214,7 @@ public class GameController {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[3].x + (createdFrames[3].width/2);
             int y = createdFrames[3].y + (createdFrames[3].height/2);
-            blackOrb = new BlackOrbModel(x, y);
+            blackOrb = new AllEnemies.BlackOrbModel(x, y);
             blackOrbEnemies.add(blackOrb);
             BlackOrbController.setTimerForCreatingBlackOrb(blackOrb);
         }
@@ -224,9 +224,9 @@ public class GameController {
     public static void newOmenoct() {
         if (!GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
-            int x = createdFrames[FrameOfObject.getFrameOfBall()].x + createdFrames[FrameOfObject.getFrameOfBall()].width - (ArchmireModel.archmireSize / 2);
+            int x = createdFrames[FrameOfObject.getFrameOfBall()].x + createdFrames[FrameOfObject.getFrameOfBall()].width - (AllEnemies.ArchmireModel.archmireSize / 2);
             int y = createdFrames[FrameOfObject.getFrameOfBall()].y + createdFrames[FrameOfObject.getFrameOfBall()].height/2;
-            omenoct = new OmenoctModel(x, y);
+            omenoct = new AllEnemies.OmenoctModel(x, y);
             omenoctEnemies.add(omenoct);
             if (omenoctEnemies.size() == 1) {
                 OmenoctController.shotBullet();
@@ -239,8 +239,8 @@ public class GameController {
         if (!GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[3].x + (createdFrames[3].width/2);
-            int y = createdFrames[3].y + createdFrames[3].height - (WyrmModel.wyrmSize/2);
-            wyrm = new WyrmModel(x, y);
+            int y = createdFrames[3].y + createdFrames[3].height - (AllEnemies.WyrmModel.wyrmSize/2);
+            wyrm = new AllEnemies.WyrmModel(x, y);
             wyrmEnemies.add(wyrm);
             if (wyrmEnemies.size() == 1) {
                 WyrmController.shotBullet();
@@ -251,7 +251,7 @@ public class GameController {
     public static void newNecropick() {
         if (!GameController.pause && !ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
-            necropick = new NecropickModel((int) (ball.x - 200), (int) ball.y);
+            necropick = new AllEnemies.NecropickModel((int) (ball.x - 200), (int) ball.y);
             necropickEnemies.add(necropick);
         }
     }

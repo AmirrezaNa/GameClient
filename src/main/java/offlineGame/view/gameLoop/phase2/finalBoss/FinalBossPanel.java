@@ -1,5 +1,6 @@
 package offlineGame.view.gameLoop.phase2.finalBoss;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
 import offlineGame.controller.game.SmileyAttacksController;
 import offlineGame.controller.game.collisions.bossFight.FrameCollisionBossFight;
@@ -22,7 +23,6 @@ import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.PunchModel;
 import model.entity.enemy.boss.RightHandModel;
 import model.entity.enemy.boss.SmileyModel;
-import model.entity.enemy.normalAndMiniBoss.ArchmireModel;
 import offlineGame.view.gameLoop.phase1.GamePanel;
 import offlineGame.view.gameLoop.phase2.normalAndMiniBossEnemies.GameFrame2;
 import offlineGame.view.gameLoop.phase2.normalAndMiniBossEnemies.GamePanel2;
@@ -259,10 +259,10 @@ public class FinalBossPanel extends JPanel implements Runnable {
                 if (GameController.archmirePoints.get(i).archmirePointTimer > 0) {
                     super.paintComponent(g);
                     g.setColor(new Color(0x4B2828));
-                    g.fillOval((int)GameController.archmirePoints.get(i).x - (ArchmireModel.archmireSize/2),
-                            (int)GameController.archmirePoints.get(i).y - (ArchmireModel.archmireSize/2),
-                            ArchmireModel.archmireSize,
-                            ArchmireModel.archmireSize);
+                    g.fillOval((int)GameController.archmirePoints.get(i).x - (AllEnemies.ArchmireModel.archmireSize/2),
+                            (int)GameController.archmirePoints.get(i).y - (AllEnemies.ArchmireModel.archmireSize/2),
+                            AllEnemies.ArchmireModel.archmireSize,
+                            AllEnemies.ArchmireModel.archmireSize);
                 }
             }
         }

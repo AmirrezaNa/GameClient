@@ -1,7 +1,7 @@
 package controller.gameController;
 
 import model.entity.*;
-import model.entity.enemy.normalAndMiniBoss.*;
+import model.entity.enemy.AllEnemies;
 import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.PunchModel;
 import model.entity.enemy.boss.RightHandModel;
@@ -10,7 +10,6 @@ import view.SettingsPanel;
 import controller.gameLoop.phase2.BossFight.EpsilonFrame;
 import controller.gameLoop.phase2.normalAndMiniBossEnemies.CreateFrames;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 
@@ -26,28 +25,28 @@ public class GameController implements Serializable {
     public BallAngle ballAngle;
 
     BulletModel bullet;
-    EnemyModel1 enemy1;
-    EnemyModel2 enemy2;
-    ArchmireModel archmire;
-    BarricadosModel1 barricados1;
-    BarricadosModel2 barricados2;
-    BlackOrbModel blackOrb;
-    OmenoctModel omenoct;
-    WyrmModel wyrm;
-    NecropickModel necropick;
+    AllEnemies.EnemyModel1 enemy1;
+    AllEnemies.EnemyModel2 enemy2;
+    AllEnemies.ArchmireModel archmire;
+    AllEnemies.BarricadosModel1 barricados1;
+    AllEnemies.BarricadosModel2 barricados2;
+    AllEnemies.BlackOrbModel blackOrb;
+    AllEnemies.OmenoctModel omenoct;
+    AllEnemies.WyrmModel wyrm;
+    AllEnemies.NecropickModel necropick;
     Collectible collectible;
     public ArrayList<BulletModel> bullets;
     public ArrayList<BulletModel> enemyBullets;
-    public ArrayList<EnemyModel1> enemies1;
-    public ArrayList<EnemyModel2> enemies2;
-    public ArrayList<ArchmireModel> archmireEnemies;
-    public ArrayList<ArchmirePoints> archmirePoints;
-    public ArrayList<BarricadosModel1> barricadosEnemies1;
-    public ArrayList<BlackOrbModel> blackOrbEnemies;
-    public ArrayList<BarricadosModel2> barricadosEnemies2;
-    public ArrayList<OmenoctModel> omenoctEnemies;
-    public ArrayList<WyrmModel> wyrmEnemies;
-    public ArrayList<NecropickModel> necropickEnemies;
+    public ArrayList<AllEnemies.EnemyModel1> enemies1;
+    public ArrayList<AllEnemies.EnemyModel2> enemies2;
+    public ArrayList<AllEnemies.ArchmireModel> archmireEnemies;
+    public ArrayList<AllEnemies.ArchmirePoints> archmirePoints;
+    public ArrayList<AllEnemies.BarricadosModel1> barricadosEnemies1;
+    public ArrayList<AllEnemies.BlackOrbModel> blackOrbEnemies;
+    public ArrayList<AllEnemies.BarricadosModel2> barricadosEnemies2;
+    public ArrayList<AllEnemies.OmenoctModel> omenoctEnemies;
+    public ArrayList<AllEnemies.WyrmModel> wyrmEnemies;
+    public ArrayList<AllEnemies.NecropickModel> necropickEnemies;
     public ArrayList<Collectible> collectibles;
     public int wave;
     public int Banish;

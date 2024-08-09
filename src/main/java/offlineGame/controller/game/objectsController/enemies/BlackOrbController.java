@@ -1,7 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
-import model.entity.enemy.normalAndMiniBoss.BlackOrbModel;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,11 +16,11 @@ public class BlackOrbController {
         if (!blackOrbEnemies.isEmpty()) {
             for (int i = 0; i < blackOrbEnemies.size(); i++) {
                 if (blackOrbEnemies.get(i).enemyHealth > 0) {
-                    blackOrbEnemies.get(i).dx = -((blackOrbEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((blackOrbEnemies.get(i).x - ball.x), 2) + Math.pow((blackOrbEnemies.get(i).y - ball.y), 2))) * BlackOrbModel.enemySpeed;
+                    blackOrbEnemies.get(i).dx = -((blackOrbEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((blackOrbEnemies.get(i).x - ball.x), 2) + Math.pow((blackOrbEnemies.get(i).y - ball.y), 2))) * AllEnemies.BlackOrbModel.enemySpeed;
                     if (ball.y < blackOrbEnemies.get(i).y) {
-                        blackOrbEnemies.get(i).dy = -Math.sqrt(Math.pow(BlackOrbModel.enemySpeed, 2) - Math.pow(blackOrbEnemies.get(i).dx, 2));
+                        blackOrbEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.BlackOrbModel.enemySpeed, 2) - Math.pow(blackOrbEnemies.get(i).dx, 2));
                     } else {
-                        blackOrbEnemies.get(i).dy = Math.sqrt(Math.pow(BlackOrbModel.enemySpeed, 2) - Math.pow(blackOrbEnemies.get(i).dx, 2));
+                        blackOrbEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.BlackOrbModel.enemySpeed, 2) - Math.pow(blackOrbEnemies.get(i).dx, 2));
                     }
                     if (ball.ballDismay) {
                         blackOrbEnemies.get(i).dx = -blackOrbEnemies.get(i).dx;
@@ -63,7 +63,7 @@ public class BlackOrbController {
     }
 
 
-    public static void setTimerForCreatingBlackOrb(BlackOrbModel blackOrb) {
+    public static void setTimerForCreatingBlackOrb(AllEnemies.BlackOrbModel blackOrb) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

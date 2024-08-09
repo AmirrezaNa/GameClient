@@ -1,7 +1,7 @@
 package offlineGame.controller.game.objectsController.enemies;
 
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.GameController;
-import model.entity.enemy.normalAndMiniBoss.WyrmModel;
 import offlineGame.view.gameLoop.phase2.normalAndMiniBossEnemies.GamePanel2;
 
 import java.awt.*;
@@ -16,11 +16,11 @@ public class WyrmController {
         if (!wyrmEnemies.isEmpty()) {
             for (int i = 0; i < wyrmEnemies.size(); i++) {
                 if (wyrmEnemies.get(i).enemyHealth > 0) {
-                    wyrmEnemies.get(i).dx = -((wyrmEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((wyrmEnemies.get(i).x - ball.x), 2) + Math.pow((wyrmEnemies.get(i).y - ball.y), 2))) * WyrmModel.enemySpeed;
+                    wyrmEnemies.get(i).dx = -((wyrmEnemies.get(i).x - ball.x) / Math.sqrt(Math.pow((wyrmEnemies.get(i).x - ball.x), 2) + Math.pow((wyrmEnemies.get(i).y - ball.y), 2))) * AllEnemies.WyrmModel.enemySpeed;
                     if (ball.y < wyrmEnemies.get(i).y) {
-                        wyrmEnemies.get(i).dy = -Math.sqrt(Math.pow(WyrmModel.enemySpeed, 2) - Math.pow(wyrmEnemies.get(i).dx, 2));
+                        wyrmEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.WyrmModel.enemySpeed, 2) - Math.pow(wyrmEnemies.get(i).dx, 2));
                     } else {
-                        wyrmEnemies.get(i).dy = Math.sqrt(Math.pow(WyrmModel.enemySpeed, 2) - Math.pow(wyrmEnemies.get(i).dx, 2));
+                        wyrmEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.WyrmModel.enemySpeed, 2) - Math.pow(wyrmEnemies.get(i).dx, 2));
                     }
                 }
                 if (ball.ballDismay) {
@@ -37,25 +37,25 @@ public class WyrmController {
         if (!wyrmEnemies.isEmpty()) {
             for (int i = 0; i < wyrmEnemies.size(); i++) {
                 if (wyrmEnemies.get(i).enemyHealth > 0) {
-                    double epsilonDistance = Math.sqrt(Math.pow(Math.abs((wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize / 2)) - ball.x), 2) + Math.pow(Math.abs((wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize / 2)) - ball.y), 2));
+                    double epsilonDistance = Math.sqrt(Math.pow(Math.abs((wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize / 2)) - ball.x), 2) + Math.pow(Math.abs((wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize / 2)) - ball.y), 2));
                     if (epsilonDistance <= 200) {
-                        if (ball.x > (wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize /2))
-                                && ball.y > (wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize /2))) {
+                        if (ball.x > (wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize /2))
+                                && ball.y > (wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize /2))) {
                             wyrmEnemies.get(i).x += 5;
                             wyrmEnemies.get(i).y += 5;
                         }
-                        if (ball.x > (wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize /2))
-                                && ball.y < (wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize /2))) {
+                        if (ball.x > (wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize /2))
+                                && ball.y < (wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize /2))) {
                             wyrmEnemies.get(i).x -= 5;
                             wyrmEnemies.get(i).y += 5;
                         }
-                        if (ball.x < (wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize /2))
-                                && ball.y > (wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize /2))) {
+                        if (ball.x < (wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize /2))
+                                && ball.y > (wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize /2))) {
                             wyrmEnemies.get(i).x -= 5;
                             wyrmEnemies.get(i).y -= 5;
                         }
-                        if (ball.x < (wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize /2))
-                                && ball.y < (wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize /2))) {
+                        if (ball.x < (wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize /2))
+                                && ball.y < (wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize /2))) {
                             wyrmEnemies.get(i).x -= 5;
                             wyrmEnemies.get(i).y -= 5;
                         }
@@ -95,8 +95,8 @@ public class WyrmController {
                     for (int i = 0; i < wyrmEnemies.size(); i++) {
                         if (wyrmEnemies.get(i).enemyHealth > 0 && !GameController.pause) {
                             Point point = new Point();
-                            point.setLocation(wyrmEnemies.get(i).x + ((double) WyrmModel.wyrmSize / 2),
-                                    wyrmEnemies.get(i).y + ((double) WyrmModel.wyrmSize / 2));
+                            point.setLocation(wyrmEnemies.get(i).x + ((double) AllEnemies.WyrmModel.wyrmSize / 2),
+                                    wyrmEnemies.get(i).y + ((double) AllEnemies.WyrmModel.wyrmSize / 2));
                             newOmenoctBullet(point);
                         }
                     }

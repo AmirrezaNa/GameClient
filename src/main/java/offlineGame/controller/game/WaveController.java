@@ -1,6 +1,6 @@
 package offlineGame.controller.game;
 
-import model.entity.enemy.normalAndMiniBoss.*;
+import model.entity.enemy.AllEnemies;
 import offlineGame.controller.game.objectsController.enemies.NecropickController;
 import offlineGame.view.gameLoop.phase1.GameFrame;
 
@@ -19,7 +19,7 @@ public class WaveController {
     // ========================== creating wave1 enemies ================================
 
 
-    public static EnemyModel1 setTimerForEnemy1() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel1 setTimerForEnemy1() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -43,7 +43,7 @@ public class WaveController {
         return enemy1;
     }
 
-    public static EnemyModel2 setTimerForEnemy2() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel2 setTimerForEnemy2() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -69,7 +69,7 @@ public class WaveController {
 
     // =========================== creating wave2 enemies =======================================
 
-    public static EnemyModel1 setTimerForEnemy1wave2() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel1 setTimerForEnemy1wave2() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -94,7 +94,7 @@ public class WaveController {
         return enemy1;
     }
 
-    public static EnemyModel2 setTimerForEnemy2wave2() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel2 setTimerForEnemy2wave2() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -120,7 +120,7 @@ public class WaveController {
 
     // =========================== creating wave3 enemies =======================================
 
-    public static EnemyModel1 setTimerForEnemy1wave3() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel1 setTimerForEnemy1wave3() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -140,7 +140,7 @@ public class WaveController {
         return enemy1;
     }
 
-    public static EnemyModel2 setTimerForEnemy2wave3() {   // this method creates an enemy every 5 seconds
+    public static AllEnemies.EnemyModel2 setTimerForEnemy2wave3() {   // this method creates an enemy every 5 seconds
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -166,7 +166,7 @@ public class WaveController {
     // =================       creating wave 4 and 5 enemies     =========================================
 
 
-    public static OmenoctModel setTimerForOmenoct() {
+    public static AllEnemies.OmenoctModel setTimerForOmenoct() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -201,7 +201,7 @@ public class WaveController {
     }
 
 
-    public static NecropickModel setTimerForNecropick() {
+    public static AllEnemies.NecropickModel setTimerForNecropick() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -238,7 +238,7 @@ public class WaveController {
         return necropick;
     }
 
-    public static ArchmireModel setTimerForArchmire() {
+    public static AllEnemies.ArchmireModel setTimerForArchmire() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -258,7 +258,7 @@ public class WaveController {
         return archmire;
     }
 
-    public static WyrmModel setTimerForWyrm() {
+    public static AllEnemies.WyrmModel setTimerForWyrm() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -294,7 +294,7 @@ public class WaveController {
     }
 
 
-    public static BarricadosModel1 setTimerForBarricados1() {
+    public static AllEnemies.BarricadosModel1 setTimerForBarricados1() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -330,7 +330,7 @@ public class WaveController {
     }
 
 
-    public static BarricadosModel2 setTimerForBarricados2() {
+    public static AllEnemies.BarricadosModel2 setTimerForBarricados2() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -365,7 +365,7 @@ public class WaveController {
     }
 
 
-    public static BlackOrbModel setTimerForBlackOrb() {
+    public static AllEnemies.BlackOrbModel setTimerForBlackOrb() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
