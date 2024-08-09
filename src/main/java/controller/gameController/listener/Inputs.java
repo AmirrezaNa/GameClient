@@ -12,7 +12,7 @@ public class Inputs implements Serializable {
     public Set<Integer> pressedKeys;
 
     public Inputs() {
-        this.mousePoint = null;
+        this.mousePoint = new Point();
         this.pressedKeys = new HashSet<>();
     }
 }

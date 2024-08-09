@@ -41,6 +41,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
         this.requestFocusInWindow();
         this.setVisible(true);
+
+        changeGamePanelSize();
     }
 
 
@@ -50,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         while (!client.gameController.phase1over) {
 
+            GameFrame.changeFrameSize(client.gameFrame);
 
 
 
@@ -79,6 +82,22 @@ public class GamePanel extends JPanel implements Runnable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public void changeGamePanelSize() {
+
+
+        // this timer reduces the frame size ========================================
+        Timer timer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setSize(client.gameFrame.width, client.gameFrame.height);
+            }
+        });
+        timer.start();
+
+
     }
 
 

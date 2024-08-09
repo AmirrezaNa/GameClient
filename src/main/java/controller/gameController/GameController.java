@@ -69,6 +69,11 @@ public class GameController implements Serializable {
     public Set<Integer> collidedFrames;
     public boolean ballBetweenFrames;
 
+    public int xFrame1;
+    public int yFrame1;
+    public int widthFrame1;
+    public int heightFrame1;
+
     public GameController() {
         gameTime(this);
         this.settings = new SettingsPanel();
@@ -127,6 +132,11 @@ public class GameController implements Serializable {
         this.gameOver = false;
         this.pause = false;
         this.stopWave = false;
+
+        this.xFrame1 = 300;
+        this.yFrame1 = 50;
+        this.widthFrame1 = 600;
+        this.heightFrame1 = 600;
     }
 
 

@@ -5,6 +5,9 @@ import model.ClientModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.TimerTask;
+
+import static view.EnterNamePageOnline.client;
 
 public class GameFrame extends JFrame {
     public int width;
@@ -42,6 +45,18 @@ public class GameFrame extends JFrame {
         this.add(gamePanel);
         setBounds(x, y, width, height);
         this.setVisible(true);
+    }
+
+
+    public static void changeFrameSize(GameFrame gameFrame) {
+        int x = client.gameController.xFrame1;
+        int y = client.gameController.yFrame1;
+        int width = client.gameController.widthFrame1;
+        int height = client.gameController.heightFrame1;
+        if (gameFrame != null) {
+            gameFrame.setBounds(x, y, width, height);
+        }
+
     }
 
 

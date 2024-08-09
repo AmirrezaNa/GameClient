@@ -41,6 +41,8 @@ public class DataTransfer {
             out.writeObject(client.inputs);
             out.reset();
             out.flush();
+            client.inputs.mousePoint.x = 0;
+            client.inputs.mousePoint.y = 0;
 
             try {
                 client.gameController = (GameController) objectInputStream.readObject();
@@ -48,8 +50,6 @@ public class DataTransfer {
                 throw new RuntimeException(e);
             }
 
-            client.inputs.mousePoint = null;
-            client.inputs.pressedKeys.clear();
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
