@@ -1,10 +1,12 @@
 package controller.gameLoop.phase1;
 
 import controller.gameController.GameController;
+import controller.gameLoop.phase2.normalAndMiniBossEnemies.GameFrame2;
 import model.ClientModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Timer;
 import java.util.TimerTask;
 
 import static view.EnterNamePageOnline.client;
@@ -45,6 +47,7 @@ public class GameFrame extends JFrame {
         this.add(gamePanel);
         setBounds(x, y, width, height);
         this.setVisible(true);
+        checkPhase1Over();
     }
 
 
@@ -57,6 +60,20 @@ public class GameFrame extends JFrame {
             gameFrame.setBounds(x, y, width, height);
         }
 
+    }
+
+    public void checkPhase1Over() {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (!client.gameController.gameOver && client.gameController.phase1over) {
+                    client.gameFrame.dispose();
+                    client.gameFrame2 = new GameFrame2();
+                }
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 1000);
     }
 
 
