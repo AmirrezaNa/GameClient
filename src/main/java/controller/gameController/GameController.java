@@ -10,6 +10,7 @@ import view.SettingsPanel;
 import controller.gameLoop.phase2.BossFight.EpsilonFrame;
 import controller.gameLoop.phase2.normalAndMiniBossEnemies.CreateFrames;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 
@@ -68,6 +69,7 @@ public class GameController implements Serializable {
     public boolean framesCreated;
     public Set<Integer> collidedFrames;
     public boolean ballBetweenFrames;
+
     public GameController() {
         gameTime(this);
         this.settings = new SettingsPanel();
@@ -111,6 +113,7 @@ public class GameController implements Serializable {
         this.wyrmEnemies = new ArrayList<>();
         this.necropickEnemies = new ArrayList<>();
         this.collectibles = new ArrayList<>();
+
 
         this.wave = 1;
         this.Banish = 0;

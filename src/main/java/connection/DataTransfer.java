@@ -4,10 +4,7 @@ import controller.gameController.GameController;
 import model.ClientModel;
 import controller.gameLoop.phase1.GameFrame;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class DataTransfer {
@@ -37,13 +34,22 @@ public class DataTransfer {
     }
 
     public static void getGameState(ClientModel client) throws IOException, ClassNotFoundException {
-        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+
         while (!client.gameController.gameOver) {
-            client.gameController = (GameController) in.readObject();
-//            System.out.println("Received game state");
-//            System.out.println(client.gameController.ball.x);
+            out.writeObject(client.inputs);
+            out.reset();
+            out.flush();
 
+            try {
+                client.gameController = (GameController) objectInputStream.readObject();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
+            client.inputs.mousePoint = null;
+            client.inputs.pressedKeys.clear();
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
